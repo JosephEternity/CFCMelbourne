@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+	{% block head %}
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap/css/bootstrap-responsive.min.css')}}">
+	<script type="text/javascript" href="{{url_for('static',filename='bootstrap/js/bootstrap.min.js')}}"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+	<title>{% block title%}{% endblock %} - Christian Fellowship Church Melbourne</title>
+	{% endblock %}
+</head>
+<body>
+	<div class="navbar navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a href="#" class="brand">CFC Melbourne</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active">
+							<a href="#">Home</a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Who are we <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">Fellowship</a>
+								</li>
+								<li>
+									<a href="#">Elders</a>
+								</li>	
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">What we believe <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">Vision</a>
+								</li>
+								<li>
+									<a href="#">Statement of Faith</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<span id="signinButton" class="pull-right" style="margin-top:5px">
+					  <span class="g-signin"
+					    	data-callback="signinCallback"
+					    	data-clientid="730810240872-2t11ggmhd2liirhu58n56b7l0djd40hh.apps.googleusercontent.com"
+					    	data-cookiepolicy="single_host_origin"
+					    	data-requestvisibleactions="http://schemas.google.com/AddActivity"
+					    	data-scope="https://www.googleapis.com/auth/plus.login">
+					  </span>
+					</span>				
+				</div>
+			</div>
+		</div>
+	</div>
+	{% block content %}{% endblock %}
+	<div id="footer">
+		{% block footer%}
+		&copy; Copyright 2013 by <a href="mailto:joseph.eternity@gmail.com">Vinay Joseph</a>
+		{% endblock%}
+	</div>
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-dropdown.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-affix.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-button.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-alert.js')}}"></script>	
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-carousel.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-collapse.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-modal.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-popover.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-scrollspy.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-tab.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-tooltip.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-transition.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/bootstrap-typeahead.js')}}"></script>
+	    <!-- Place this asynchronous JavaScript just before your </body> tag -->
+    <script type="text/javascript">
+      (function() {
+       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+       po.src = 'https://apis.google.com/js/client:plusone.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+     })();
+    </script>
+</body>
+</html>
