@@ -13,7 +13,7 @@ from flask import session
 
 
 from simplekv.memory import DictStore
-from flasktext.kvsession import KVSessionExtension
+from flaskext.kvsession import KVSessionExtension
 
 APPLICATION_NAME = 'CFC Melbourne Website'
 
@@ -24,13 +24,32 @@ app.secret_key = ''.join(random.choice(string.ascii_uppercase + string.digits)
 
 store = DictStore()
 
+#app session handling..
 KVSessionExtension(store,app)
 
-class View(flask.views.MethodView):
-	def get(self):
-		return render_template('index.html')
+# Update client_secrets.json with your Google API project information.
+# Do not change this assignment.
+CLIENT_ID = json.loads(
+    open('client_secrets.json', 'r').read())['web']['client_id']
 
-app.add_url_rule('/',view_func=View.as_view('main'))
+
+@app.route('/',methods=['GET'])
+def index():
+	""" Initialize a session for the current user, and render index.html"""
+	# Create a state token to prevent forgery of the request
+	# Store it in the session for latter validation
+	state= "".join(random.choice(string.ascii_uppercase + string.digits)
+					for x in xrange(32))
+	session['state'] = state
+	# Set the client ID, Token State, and Application Name in the HTML while 
+	# serving it.
+	response = make_response(render_template('index.html',
+											CLIENT_ID=CLIENT_ID,
+											STATE=state,
+											APPLICATION_NAME=APPLICATION_NAME))
+	response.headers['Content-Type'] = 'text/html'
+	return response
+	
 
 app.debug = True
 app.run()

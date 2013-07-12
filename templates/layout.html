@@ -4,6 +4,7 @@
 	{% block head %}
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap/css/bootstrap-responsive.min.css')}}">
+	<script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/custom.js')}}"></script>
 	<script type="text/javascript" href="{{url_for('static',filename='bootstrap/js/bootstrap.min.js')}}"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 	<title>{% block title%}{% endblock %} - Christian Fellowship Church Melbourne</title>
@@ -50,7 +51,7 @@
 					<span id="signinButton" class="pull-right" style="margin-top:5px">
 					  <span class="g-signin"
 					    	data-callback="signinCallback"
-					    	data-clientid="730810240872-2t11ggmhd2liirhu58n56b7l0djd40hh.apps.googleusercontent.com"
+        					data-clientId="{{ CLIENT_ID }}"
 					    	data-cookiepolicy="single_host_origin"
 					    	data-requestvisibleactions="http://schemas.google.com/AddActivity"
 					    	data-scope="https://www.googleapis.com/auth/plus.login">
